@@ -5,7 +5,6 @@
 
 An AI-first prototype that cuts a fashion retailer's trend-to-store cycle from **14 weeks to under 8** while keeping every creative and commercial decision with a person.
 
-
 ---
 
 ## What's in this repository
@@ -71,20 +70,16 @@ Data sources (runway, social, search, competitors, reviews, sales, weather, Goog
         │
         ├── Design workflow ──── Trend Intelligence → Design Copilot → Review → Generated docs
         │
-        └── Control Tower ────── Supabase (PostgreSQL) → XGBoost model → FastAPI → Dashboard
-                                                                                   │
-                                Audit trail: concept record + planner decision log ┘
+        └── Control Tower ────── Demand forecast → Scenario engine → Ranked decision queue
+                                                                           │
+                        Audit trail: concept record + planner decision log ┘
 ```
 
 ## Tech stack
 
-This repository contains the frontend prototype, which runs entirely in the browser with built-in demo data. The full build behind it also included the backend, database and model listed below.
-
 | Layer | Technology |
 | --- | --- |
-| Frontend | HTML, CSS, vanilla JavaScript (single file), deployed on Vercel |
-| Backend | FastAPI + Uvicorn (Python 3.11), deployed on Render |
-| Database | Supabase (PostgreSQL): 27 tables, ~640,000 rows |
+| Prototype | HTML, CSS, vanilla JavaScript in a single file; runs entirely in the browser with built-in demo data |
 | Machine learning | XGBoost, scikit-learn, LightGBM (benchmarking), pandas |
 | External data | Open-Meteo (weather), Google Trends via pytrends |
 | AI-assisted development | Claude (Anthropic) |
